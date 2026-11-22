@@ -435,7 +435,7 @@ section.pat::before{opacity:.9;filter:sepia(1) saturate(2) brightness(.7)}
 <script>
 /* ---------- settings: add these when available ---------- */
 const MAP_URL   = "";   // paste the Google Maps link of the venue here
-const MUSIC_SRC = "song.mp3";
+const MUSIC_SRC = "song.mp3?v=3";
 const WEDDING   = new Date(2027,0,27,0,0,0);
 
 /* ---------- Gold ornaments (hero) ---------- */
@@ -633,14 +633,30 @@ const Music=(()=>{
   return {start,stop,get on(){return on}};
 })();
 
-const audio = MUSIC_SRC ? new Audio(MUSIC_SRC) : null;
+const SRCS = MUSIC_SRC ? [MUSIC_SRC].concat(MUSIC_SRC.startsWith('data:') ? [] : ['music.mp3']) : [];
+const audio = SRCS.length ? new Audio() : null;
+let srcI = 0, wantPlay = false;
 let wantMusic=true;
 let fadeT=null;
 function fadeTo(v,ms,done){clearInterval(fadeT);const st=audio.volume,t0=performance.now();
   fadeT=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/ms);audio.volume=st+(v-st)*k;if(k>=1){clearInterval(fadeT);done&&done()}},40)}
-if(audio){audio.loop=true;audio.preload='auto';audio.volume=0}
-function musicOn(){ if(audio){audio.play().then(()=>{music.classList.add('on');fadeTo(.9,2500)}).catch(()=>{music.classList.remove('on');music.classList.add('hint')})} else Music.start() }
-function musicOff(){ if(audio){music.classList.remove('on');fadeTo(0,600,()=>audio.pause())} else Music.stop() }
+if(audio){
+  audio.loop=true;audio.preload='auto';audio.volume=0;audio.src=SRCS[0];
+  audio.addEventListener('error',()=>{            // file missing/unplayable: try the backup copy
+    if(++srcI<SRCS.length){audio.src=SRCS[srcI];audio.load();if(wantPlay)tryPlay()}
+    else music.classList.add('hint');
+  });
+}
+function playing(){music.classList.remove('hint');music.classList.add('on');fadeTo(.9,2500)}
+function tryPlay(){
+  audio.play().then(playing).catch(err=>{
+    if(err&&err.name==='NotAllowedError'){music.classList.remove('on');music.classList.add('hint');return}
+    // not loaded yet: start as soon as it can play
+    audio.addEventListener('canplay',()=>{if(wantPlay)audio.play().then(playing).catch(()=>music.classList.add('hint'))},{once:true});
+  });
+}
+function musicOn(){ if(audio){wantPlay=true;tryPlay()} else Music.start() }
+function musicOff(){ if(audio){wantPlay=false;music.classList.remove('on');fadeTo(0,600,()=>audio.pause())} else Music.stop() }
 music.style.display='grid';
 music.onclick=()=>{ music.classList.remove('hint'); const playing=music.classList.contains('on'); wantMusic=!playing; playing?musicOff():musicOn() };
 document.addEventListener('visibilitychange',()=>{ if(!opened)return; if(document.hidden)musicOff(); else if(wantMusic)musicOn() });
