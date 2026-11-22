@@ -221,6 +221,22 @@ section.pat::before{opacity:.9;filter:sepia(1) saturate(2) brightness(.7)}
 .scard{box-shadow:0 24px 50px rgba(94,11,24,.18),0 0 0 1px rgba(168,125,58,.6)}
 .plaque .eyebrow{color:var(--gold)}
 .plaque{background:linear-gradient(180deg,#7a1426,#4d0812)}
+/* ===== Off-white stage ===== */
+#stage{background:linear-gradient(180deg,rgba(120,90,40,.18),transparent 30%,transparent 70%,rgba(120,90,40,.2)),
+  repeating-linear-gradient(90deg,#e4d5b8 0,#f6eedf 18px,#fffcf6 26px,#efe4cf 40px,#ddcaa6 52px)}
+.scene{box-shadow:0 0 70px 20px rgba(120,90,40,.25)}
+.st .bism{color:#a87d3a;text-shadow:none}
+.st .inv{color:#6b3a2e}
+.st .nm{background-image:linear-gradient(100deg,#7a4a14 0%,#b8873c 25%,#6e1022 45%,#a3172b 60%,#8a5a1e 80%,#7a1426 100%);filter:none}
+.st .amp{color:#a87d3a}
+.st .hdate{color:#5e0b18;text-shadow:none}
+.st .hijri{color:#a87d3a}
+.tap{color:#7a1426}
+.tap .ring{background:rgba(255,250,240,.85);box-shadow:inset 0 0 0 1px rgba(168,125,58,.8)}
+.tap .ring svg{stroke:#7a1426}
+.tap span{text-shadow:0 1px 6px rgba(255,255,255,.9)}
+#stage .cue{color:#a87d3a}
+#stage .cue i{background:linear-gradient(#a87d3a,transparent)}
 </style>
 </head>
 <body class="locked">
@@ -252,22 +268,22 @@ section.pat::before{opacity:.9;filter:sepia(1) saturate(2) brightness(.7)}
       <circle cx="18" cy="18" r="2.2" fill="#e3c27e"/>
     </pattern>
     <linearGradient id="foldG" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#26030a"/><stop offset=".3" stop-color="#6a0f20"/><stop offset=".52" stop-color="#a42639"/><stop offset=".72" stop-color="#650e1e"/><stop offset="1" stop-color="#26030a"/>
+      <stop offset="0" stop-color="#d9c7a4"/><stop offset=".3" stop-color="#f1e7d3"/><stop offset=".52" stop-color="#fffcf5"/><stop offset=".72" stop-color="#efe3cc"/><stop offset="1" stop-color="#d4c09a"/>
     </linearGradient>
     <pattern id="folds" width="26" height="40" patternUnits="userSpaceOnUse"><rect width="26" height="40" fill="url(#foldG)"/></pattern>
     <linearGradient id="cshade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset=".28" stop-color="#000" stop-opacity="0"/><stop offset=".75" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity=".55"/>
+      <stop offset="0" stop-color="#6b4a22" stop-opacity=".35"/><stop offset=".28" stop-color="#6b4a22" stop-opacity="0"/><stop offset=".75" stop-color="#6b4a22" stop-opacity=".04"/><stop offset="1" stop-color="#6b4a22" stop-opacity=".25"/>
     </linearGradient>
     <linearGradient id="valG" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2a030a"/><stop offset=".6" stop-color="#6e1022"/><stop offset=".85" stop-color="#8e1b2e"/><stop offset="1" stop-color="#5a0b19"/>
+      <stop offset="0" stop-color="#e6d6b6"/><stop offset=".6" stop-color="#f6eedd"/><stop offset=".85" stop-color="#fcf8ef"/><stop offset="1" stop-color="#eadbbd"/>
     </linearGradient>
     <pattern id="fringe" width="4" height="22" patternUnits="userSpaceOnUse"><path d="M2 0V18" stroke="#e3c27e" stroke-width=".9"/><circle cx="2" cy="19" r="1.1" fill="#f6e3b4"/></pattern>
     <pattern id="wallpat" width="40" height="40" patternUnits="userSpaceOnUse">
-      <rect width="40" height="40" fill="#2c040c"/>
-      <g fill="none" stroke="#e3c27e" stroke-opacity=".13" stroke-width=".8"><rect x="11" y="11" width="18" height="18"/><rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)"/></g>
+      <rect width="40" height="40" fill="#f5eddd"/>
+      <g fill="none" stroke="#b8904a" stroke-opacity=".28" stroke-width=".8"><rect x="11" y="11" width="18" height="18"/><rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)"/></g>
     </pattern>
     <radialGradient id="bd" cx=".5" cy=".42" r=".65">
-      <stop offset="0" stop-color="#b0503a"/><stop offset=".35" stop-color="#6e1822"/><stop offset=".75" stop-color="#3a0610"/><stop offset="1" stop-color="#1e0207"/>
+      <stop offset="0" stop-color="#fffaf0"/><stop offset=".4" stop-color="#f6ecd9"/><stop offset=".8" stop-color="#e9dbbf"/><stop offset="1" stop-color="#d9c49c"/>
     </radialGradient>
     <linearGradient id="floorG" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#e3a860" stop-opacity=".22"/>
@@ -311,7 +327,7 @@ section.pat::before{opacity:.9;filter:sepia(1) saturate(2) brightness(.7)}
       <svg class="layer front" id="front" viewBox="0 0 400 860" preserveAspectRatio="none" aria-hidden="true"></svg>
     </div>
     <button class="tap" id="tap" aria-label="Tap to open the invitation">
-      <span class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="#f6e3b4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.6-2.2L4 15.5a1.6 1.6 0 0 1 2.4-2.1L9 15.5"/></svg></span>
+      <span class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="#7a1426" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.6-2.2L4 15.5a1.6 1.6 0 0 1 2.4-2.1L9 15.5"/></svg></span>
       <span>TAP TO OPEN</span>
     </button>
     <a class="cue" href="#note"><i></i>SCROLL</a>
@@ -444,9 +460,9 @@ const BOT = (b)=> branch([30,130],[20,70],[45,10],6,1.5,b) + branch([40,130],[10
 /* ---------- Stage: curtains, arch, chandelier, candelabras ---------- */
 const ARCH="M34 860V236A166 166 0 0 1 366 236V860Z";
 function flame(x,y,s=1){return `<circle cx="${x}" cy="${y}" r="${10*s}" fill="url(#halo)"/><ellipse class="flame" cx="${x}" cy="${y}" rx="${2.4*s}" ry="${4.8*s}" fill="url(#flameG)"/>`}
-function candleOn(x,y,h=13,w=4,s=1){return `<ellipse cx="${x}" cy="${y}" rx="${w*1.4}" ry="${w*.5}" fill="url(#gold)"/><rect x="${x-w/2}" y="${y-h}" width="${w}" height="${h}" rx="1" fill="#f7ecd8"/>${flame(x,y-h-4*s,s)}`}
+function candleOn(x,y,h=13,w=4,s=1){return `<ellipse cx="${x}" cy="${y}" rx="${w*1.4}" ry="${w*.5}" fill="url(#gold)"/><rect x="${x-w/2}" y="${y-h}" width="${w}" height="${h}" rx="1" fill="#fffdf7" stroke="#c9a25a" stroke-width=".5"/>${flame(x,y-h-4*s,s)}`}
 function buildBack(){
-  back.innerHTML=`<rect width="400" height="860" fill="#1c0207"/>
+  back.innerHTML=`<rect width="400" height="860" fill="#efe4cf"/>
    <g clip-path="url(#archClip)">
      <rect x="34" y="60" width="332" height="800" fill="url(#bd)"/>
      <rect x="34" y="60" width="332" height="800" fill="url(#folds)" opacity=".28"/>
@@ -462,16 +478,16 @@ function buildChand(){
   s+=`<path d="M80 50Q100 36 120 50L115 58H85Z" fill="url(#gold)"/><circle cx="82" cy="48" r="2.2" fill="url(#gold)"/><circle cx="118" cy="48" r="2.2" fill="url(#gold)"/>
       <path d="M100 58C110 70 110 84 100 94C90 84 90 70 100 58Z" fill="url(#gold)"/><path d="M100 94V206" stroke="url(#goldV)" stroke-width="3.4"/>`;
   // swag crystal chains
-  const sw=(xs,y,dip)=>{let o='';for(let i=0;i<xs.length-1;i++){const a=xs[i],b=xs[i+1];o+=`<path d="M${a} ${y}Q${(a+b)/2} ${y+dip} ${b} ${y}" fill="none" stroke="#fff3d2" stroke-width="2" stroke-dasharray=".1 4.2" stroke-linecap="round" opacity=".9"/>`}return o};
+  const sw=(xs,y,dip)=>{let o='';for(let i=0;i<xs.length-1;i++){const a=xs[i],b=xs[i+1];o+=`<path d="M${a} ${y}Q${(a+b)/2} ${y+dip} ${b} ${y}" fill="none" stroke="#c4a060" stroke-width="2" stroke-dasharray=".1 4.2" stroke-linecap="round" opacity=".9"/>`}return o};
   s+=sw([52,76,100,124,148],122,12)+sw([20,58,100,142,180],182,16)+sw([30,64,100,136,170],196,14);
   pts1.forEach(x=>{s+=`<path d="M100 118C${x+(x<100?20:-20)} 132 ${x} 128 ${x} 112" fill="none" stroke="url(#gold)" stroke-width="2.6"/>`+candleOn(x,112,12,3.6,.9)});
   pts2.forEach(x=>{s+=`<path d="M100 178C${x+(x<100?36:-36)} 194 ${x} 188 ${x} 168" fill="none" stroke="url(#gold)" stroke-width="3"/>`+candleOn(x,168,14,4,1)});
   s+=`<ellipse cx="100" cy="150" rx="24" ry="6" fill="url(#gold)"/><ellipse cx="100" cy="206" rx="32" ry="7.5" fill="url(#gold)"/>
       <path d="M100 212C111 220 107 242 100 256C93 242 89 220 100 212Z" fill="url(#gold)"/>`;
   [22,40,58,79,100,121,142,160,178].forEach((x,i)=>{const L=14+(i%3)*7,y0=200;
-    s+=`<path d="M${x} ${y0}V${y0+L}" stroke="#fff3d2" stroke-width="1.6" stroke-dasharray=".1 3.6" stroke-linecap="round"/>
-        <path class="twk" style="animation-delay:${(i*.37)%2.4}s" d="M${x} ${y0+L}l3 5-3 6-3-6z" fill="#fff8e6"/>`});
-  s+=`<path class="twk" d="M100 256l5 8-5 10-5-10z" fill="#fff8e6"/>`;
+    s+=`<path d="M${x} ${y0}V${y0+L}" stroke="#c4a060" stroke-width="1.6" stroke-dasharray=".1 3.6" stroke-linecap="round"/>
+        <path class="twk" style="animation-delay:${(i*.37)%2.4}s" d="M${x} ${y0+L}l3 5-3 6-3-6z" fill="#fffaf0" stroke="#b08a48" stroke-width=".6"/>`});
+  s+=`<path class="twk" d="M100 256l5 8-5 10-5-10z" fill="#fffaf0" stroke="#b08a48" stroke-width=".7"/>`;
   chand.innerHTML=s;
 }
 function buildCandles(){
@@ -501,11 +517,11 @@ function buildFront(){
      <path d="M${x-5} ${y+38}Q${x} ${y+16} ${x+5} ${y+38}Z" fill="url(#goldV)"/><rect x="${x-5.5}" y="${y+36}" width="11" height="8" fill="url(#fringe)"/>`});
   // wall with arch opening
   s+=`<path d="M0 0H400V860H0Z${ARCH}" fill="url(#wallpat)" fill-rule="evenodd"/>
-      <path d="M0 0H400V860H0Z${ARCH}" fill="#000" opacity=".25" fill-rule="evenodd"/>`;
+      <path d="M0 0H400V860H0Z${ARCH}" fill="#8a6326" opacity=".06" fill-rule="evenodd"/>`;
   // mouldings
   s+=`<path d="M24 860V236A176 176 0 0 1 376 236V860" fill="none" stroke="url(#gold)" stroke-width="2"/>
       <path d="M34 860V236A166 166 0 0 1 366 236V860" fill="none" stroke="url(#gold)" stroke-width="5"/>
-      <path d="M41 860V236A159 159 0 0 1 359 236V860" fill="none" stroke="#f6e3b4" stroke-width="2.2" stroke-dasharray=".1 6" stroke-linecap="round"/>`;
+      <path d="M41 860V236A159 159 0 0 1 359 236V860" fill="none" stroke="#b8904a" stroke-width="2.2" stroke-dasharray=".1 6" stroke-linecap="round"/>`;
   // pillars
   [[6,28],[372,394]].forEach(([a,b])=>{const w=b-a;
     s+=`<rect x="${a}" y="250" width="${w}" height="590" fill="url(#goldV)" opacity=".9"/>`;
@@ -513,7 +529,7 @@ function buildFront(){
     s+=`<path d="M${a-4} 250H${b+4}L${b} 236H${a}Z" fill="url(#gold)"/><path d="M${a-5} 840H${b+5}V860H${a-5}Z" fill="url(#gold)"/>`});
   // keystone crest: crescent & star with scrolls
   s+=`<path d="M200 44a17 17 0 1 0 0 34a13 13 0 1 1 0-34z" fill="url(#gold)" transform="rotate(-30 200 61)"/>
-      <path d="M210 56l1.6 3.4 3.7.4-2.8 2.5.8 3.7-3.3-1.9-3.3 1.9.8-3.7-2.8-2.5 3.7-.4z" fill="#f6e3b4"/>
+      <path d="M210 56l1.6 3.4 3.7.4-2.8 2.5.8 3.7-3.3-1.9-3.3 1.9.8-3.7-2.8-2.5 3.7-.4z" fill="#a87d3a"/>
       <path d="M182 62c-14-2-22 6-34 4M218 62c14-2 22 6 34 4" fill="none" stroke="url(#gold)" stroke-width="1.6"/>
       <path d="M150 66c-6 0-8-6-3-8M250 66c6 0 8-6 3-8" fill="none" stroke="url(#gold)" stroke-width="1.4"/>`;
   // garland: leaves, baby's breath, roses
