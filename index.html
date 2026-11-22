@@ -195,6 +195,32 @@ body.ready .deco .grow{animation:grow 1.3s cubic-bezier(.3,1.35,.5,1) forwards;a
 @keyframes spin{to{transform:rotate(360deg)}}
 
 @media (prefers-reduced-motion: reduce){.nm{animation:none}.seal::before,.seal::after{animation:none}}
+/* ===== Off-white theme for the sections below the stage ===== */
+body{background:#fbf6ec}
+#note,#details,#closing{background:#fbf6ec;color:#4a1a1f}
+#scratch,#venue{background:#f5ecdc;color:#4a1a1f}
+section.pat::before{opacity:.9;filter:sepia(1) saturate(2) brightness(.7)}
+#note .eyebrow,#scratch .eyebrow:not(.plaque .eyebrow),#details .eyebrow,#venue .eyebrow{color:#a87d3a}
+.title{color:#5e0b18}
+.quote{color:#5a3a35}
+.quote-ar,.quote-ref{color:#a87d3a}
+.sub{color:#7a5a50}
+.dcard{background:#fffaf1;box-shadow:inset 0 0 0 1px rgba(168,125,58,.45),0 18px 40px rgba(94,11,24,.08)}
+.drow{border-bottom-color:rgba(168,125,58,.25)}
+.dic{background:#fbf1de;box-shadow:inset 0 0 0 1px rgba(168,125,58,.5)}
+.dic svg{stroke:#a87d3a}
+.dl{color:#a87d3a}
+.dv{color:#5e0b18}
+.vname{color:#5e0b18}
+.var{color:#a87d3a}
+.thanks{color:#7a1426}
+.closing-t{color:#5a3a35}
+.jz{color:#a87d3a}
+.mono{color:#7a1426;box-shadow:inset 0 0 0 1px rgba(168,125,58,.7),0 0 0 6px #fbf6ec,0 0 0 7px rgba(168,125,58,.35)}
+.foot{color:#a87d3a}
+.scard{box-shadow:0 24px 50px rgba(94,11,24,.18),0 0 0 1px rgba(168,125,58,.6)}
+.plaque .eyebrow{color:var(--gold)}
+.plaque{background:linear-gradient(180deg,#7a1426,#4d0812)}
 </style>
 </head>
 <body class="locked">
@@ -465,10 +491,6 @@ function buildFront(){
       <path d="M205 60V860" stroke="url(#goldV)" stroke-width="2.4"/><rect x="34" y="830" width="172" height="5" fill="url(#gold)"/><rect x="34" y="835" width="172" height="22" fill="url(#fringe)"/></g>
     <g id="cR"><rect x="194" y="60" width="172" height="800" fill="url(#folds)"/><rect x="194" y="60" width="172" height="800" fill="url(#cshade)"/>
       <path d="M195 60V860" stroke="url(#goldV)" stroke-width="2.4"/><rect x="194" y="830" width="172" height="5" fill="url(#gold)"/><rect x="194" y="835" width="172" height="22" fill="url(#fringe)"/></g>
-    <g id="seamMono">
-      <circle cx="200" cy="500" r="30" fill="#3a0610" stroke="url(#gold)" stroke-width="1.8"/><circle cx="200" cy="500" r="25" fill="none" stroke="#e3c27e" stroke-opacity=".6" stroke-width=".6"/>
-      <text x="200" y="506" text-anchor="middle" font-family="Great Vibes, cursive" font-size="18" fill="#f6e3b4">M&amp;H</text>
-    </g>
     <path d="M0 0H400V150Q366 205 300 185Q250 216 200 188Q150 216 100 185Q34 205 0 150Z" fill="url(#valG)"/>
     <path d="M0 0H400V150Q366 205 300 185Q250 216 200 188Q150 216 100 185Q34 205 0 150Z" fill="url(#folds)" opacity=".25"/>
     <path d="M0 150Q34 205 100 185Q150 216 200 188Q250 216 300 185Q366 205 400 150" fill="none" stroke="url(#gold)" stroke-width="3"/>
