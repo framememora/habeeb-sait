@@ -647,7 +647,7 @@ document.addEventListener('visibilitychange',()=>{ if(!opened)return; if(documen
 function openGate(){
   if(opened)return;opened=true;
   try{musicOn()}catch(e){}
-  stage.classList.add('open');document.body.classList.add('ready');
+  stage.classList.add('open');document.body.classList.add('ready');fit();setTimeout(fit,600);setTimeout(fit,3000);
   setTimeout(()=>burst(W/2,H*.3,RM?6:18),1000);
   setTimeout(()=>{document.body.classList.remove('locked');shower(RM?5:18)},3400);
 }
@@ -701,6 +701,8 @@ function fit(){document.querySelectorAll('.nm,.cv-name').forEach(el=>{el.style.f
   const max=el.clientWidth;let fs=parseFloat(getComputedStyle(el).fontSize);
   while(el.scrollWidth>max&&fs>14){fs-=1;el.style.fontSize=fs+'px'}})}
 document.fonts.ready.then(fit);addEventListener('resize',fit);
+try{document.fonts.addEventListener('loadingdone',fit)}catch(e){}
+addEventListener('load',fit);
 
 /* ---------- Map ---------- */
 if(MAP_URL){mapBtn.href=MAP_URL;mapBtn.style.display='inline-flex'}
