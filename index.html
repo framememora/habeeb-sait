@@ -435,7 +435,7 @@ section.pat::before{opacity:.9;filter:sepia(1) saturate(2) brightness(.7)}
 <script>
 /* ---------- settings: add these when available ---------- */
 const MAP_URL   = "";   // paste the Google Maps link of the venue here
-const MUSIC_SRC = "song.mp3?v=3";
+const MUSIC_SRC = "song.mp3?v=4";
 const WEDDING   = new Date(2027,0,27,0,0,0);
 
 /* ---------- Gold ornaments (hero) ---------- */
@@ -647,15 +647,6 @@ if(audio){
     else music.classList.add('hint');
   });
 }
-// Download the song in the background as soon as the page opens, so it is ready before the tap
-if(audio && !SRCS[0].startsWith('data:')){
-  try{audio.load()}catch(e){}
-  window.songPrefetch=new AbortController();
-  fetch(SRCS[0],{signal:songPrefetch.signal}).then(r=>{if(!r.ok)throw 0;return r.blob()}).then(b=>{
-    if(wantPlay||!audio.paused)return;            // already started from the network copy — leave it
-    audio.src=URL.createObjectURL(new Blob([b],{type:'audio/mpeg'}));audio.load();
-  }).catch(()=>{});
-}
 function playing(){music.classList.remove('hint');music.classList.add('on');fadeTo(.9,2500)}
 function tryPlay(){
   audio.play().then(playing).catch(err=>{
@@ -664,7 +655,7 @@ function tryPlay(){
     audio.addEventListener('canplay',()=>{if(wantPlay)audio.play().then(playing).catch(()=>music.classList.add('hint'))},{once:true});
   });
 }
-function musicOn(){ if(audio){wantPlay=true;if(window.songPrefetch&&!audio.src.startsWith('blob:')){try{songPrefetch.abort()}catch(e){}}tryPlay()} else Music.start() }
+function musicOn(){ if(audio){wantPlay=true;tryPlay()} else Music.start() }
 function musicOff(){ if(audio){wantPlay=false;music.classList.remove('on');fadeTo(0,600,()=>audio.pause())} else Music.stop() }
 music.style.display='grid';
 music.onclick=()=>{ music.classList.remove('hint'); const playing=music.classList.contains('on'); wantMusic=!playing; playing?musicOff():musicOn() };
